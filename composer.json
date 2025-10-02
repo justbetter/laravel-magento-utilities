@@ -1,0 +1,64 @@
+{
+    "name": "justbetter/laravel-magento-utilities",
+    "description": "Additional utilities for the Laravel Magento Client",
+    "type": "package",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ramon Rietdijk",
+            "email": "ramon@justbetter.nl",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "guzzlehttp/guzzle": "^7.5",
+        "justbetter/laravel-magento-client": "^2.7",
+        "laravel/framework": "^11.0|^12.0"
+    },
+    "require-dev": {
+        "larastan/larastan": "^3.7",
+        "laravel/pint": "^1.25",
+        "orchestra/testbench": "^10.6",
+        "pestphp/pest": "^4.1",
+        "phpstan/phpstan-mockery": "^2.0",
+        "phpunit/phpunit": "^12.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "JustBetter\\MagentoUtilities\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "JustBetter\\MagentoUtilities\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "analyse": "phpstan --memory-limit=256M",
+        "style": "pint --test",
+        "quality": [
+            "@style",
+            "@analyse",
+            "@test",
+            "@coverage"
+        ],
+        "coverage": "XDEBUG_MODE=coverage php vendor/bin/pest --coverage --min=100"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "JustBetter\\MagentoUtilities\\ServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

@@ -2,6 +2,8 @@
 
 namespace JustBetter\MagentoUtilities\Data;
 
+use JustBetter\MagentoUtilities\Contracts\GetsWebsites;
+
 /**
  * @property int $id
  * @property string $code
@@ -14,5 +16,15 @@ namespace JustBetter\MagentoUtilities\Data;
  */
 class Store extends Data
 {
-    //
+    public function website(): Website
+    {
+        /** @var GetsWebsites $contract */
+        $contract = app(GetsWebsites::class);
+
+        $websites = $contract->get();
+
+        return $websites
+            ->where('id', '=', $this->website_id)
+            ->firstOrFail();
+    }
 }

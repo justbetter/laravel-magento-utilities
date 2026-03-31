@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JustBetter\MagentoUtilities\Tests\Actions;
 
 use Illuminate\Support\Facades\Http;
@@ -8,7 +10,7 @@ use JustBetter\MagentoUtilities\Actions\GetStores;
 use JustBetter\MagentoUtilities\Tests\TestCase;
 use PHPUnit\Framework\Attributes\Test;
 
-class GetStoresTest extends TestCase
+final class GetStoresTest extends TestCase
 {
     #[Test]
     public function it_can_get_stores(): void

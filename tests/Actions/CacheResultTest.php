@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JustBetter\MagentoUtilities\Tests\Actions;
 
 use JustBetter\MagentoUtilities\Actions\CacheResult;
 use JustBetter\MagentoUtilities\Tests\TestCase;
 use PHPUnit\Framework\Attributes\Test;
 
-class CacheResultTest extends TestCase
+final class CacheResultTest extends TestCase
 {
     #[Test]
     public function it_can_cache_results(): void

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JustBetter\MagentoUtilities\Tests\Data;
 
 use Illuminate\Support\Facades\Http;
@@ -8,7 +10,7 @@ use JustBetter\MagentoUtilities\Data\Store;
 use JustBetter\MagentoUtilities\Tests\TestCase;
 use PHPUnit\Framework\Attributes\Test;
 
-class StoreTest extends TestCase
+final class StoreTest extends TestCase
 {
     #[Test]
     public function it_can_get_website(): void

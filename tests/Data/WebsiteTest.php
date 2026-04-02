@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JustBetter\MagentoUtilities\Tests\Data;
 
 use Illuminate\Support\Facades\Http;
@@ -8,7 +10,7 @@ use JustBetter\MagentoUtilities\Data\Website;
 use JustBetter\MagentoUtilities\Tests\TestCase;
 use PHPUnit\Framework\Attributes\Test;
 
-class WebsiteTest extends TestCase
+final class WebsiteTest extends TestCase
 {
     #[Test]
     public function it_can_get_stores(): void
@@ -45,6 +47,6 @@ class WebsiteTest extends TestCase
 
         $stores = $website->stores();
 
-        $this->assertEquals(1, $stores->count());
+        $this->assertCount(1, $stores);
     }
 }

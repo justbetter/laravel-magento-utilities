@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JustBetter\MagentoUtilities\Tests\Collections;
 
 use JustBetter\MagentoUtilities\Collections\StoreCollection;
@@ -7,7 +9,7 @@ use JustBetter\MagentoUtilities\Data\Store;
 use JustBetter\MagentoUtilities\Tests\TestCase;
 use PHPUnit\Framework\Attributes\Test;
 
-class StoreCollectionTest extends TestCase
+final class StoreCollectionTest extends TestCase
 {
     #[Test]
     public function it_can_filter_active_stores(): void
@@ -33,7 +35,7 @@ class StoreCollectionTest extends TestCase
 
         $collection = StoreCollection::make($items);
 
-        $this->assertEquals(2, $collection->count());
-        $this->assertEquals(1, $collection->active()->count());
+        $this->assertCount(2, $collection);
+        $this->assertCount(1, $collection->active());
     }
 }

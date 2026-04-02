@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JustBetter\MagentoUtilities;
 
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
@@ -9,6 +11,7 @@ use JustBetter\MagentoUtilities\Actions\GetWebsites;
 
 class ServiceProvider extends BaseServiceProvider
 {
+    #[\Override]
     public function register(): void
     {
         $this

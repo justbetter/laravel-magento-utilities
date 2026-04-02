@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JustBetter\MagentoUtilities\Actions;
 
 use JustBetter\MagentoClient\Client\Magento;
@@ -20,13 +22,11 @@ class GetStores implements GetsStores
 
     public function get(): StoreCollection
     {
-        return $this->cache->remember('store/storeViews', function (): StoreCollection {
-            return $this->magento->get('store/storeViews')
-                ->throw()
-                ->collect()
-                ->mapInto(Store::class)
-                ->pipeInto(StoreCollection::class);
-        });
+        return $this->cache->remember('store/storeViews', fn (): StoreCollection => $this->magento->get('store/storeViews')
+            ->throw()
+            ->collect()
+            ->mapInto(Store::class)
+            ->pipeInto(StoreCollection::class));
     }
 
     public static function bind(): void

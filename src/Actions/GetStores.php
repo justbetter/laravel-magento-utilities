@@ -13,7 +13,7 @@ use JustBetter\MagentoUtilities\Data\Store;
 class GetStores implements GetsStores
 {
     /**
-     * @param  CachesResult<StoreCollection>  $cache
+     * @param  CachesResult<array>  $cache
      */
     public function __construct(
         protected Magento $magento,
@@ -22,11 +22,13 @@ class GetStores implements GetsStores
 
     public function get(): StoreCollection
     {
-        return $this->cache->remember('store/storeViews', fn (): StoreCollection => $this->magento->get('store/storeViews')
-            ->throw()
-            ->collect()
+        $data = $this->cache->remember('store/storeViews', function (): array {
+            return (array) $this->magento->get('store/storeViews')->throw()->json();
+        });
+
+        return collect($data)
             ->mapInto(Store::class)
-            ->pipeInto(StoreCollection::class));
+            ->pipeInto(StoreCollection::class);
     }
 
     public static function bind(): void

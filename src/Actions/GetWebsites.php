@@ -13,7 +13,7 @@ use JustBetter\MagentoUtilities\Data\Website;
 class GetWebsites implements GetsWebsites
 {
     /**
-     * @param  CachesResult<WebsiteCollection>  $cache
+     * @param  CachesResult<array>  $cache
      */
     public function __construct(
         protected Magento $magento,
@@ -22,11 +22,13 @@ class GetWebsites implements GetsWebsites
 
     public function get(): WebsiteCollection
     {
-        return $this->cache->remember('store/websites', fn (): WebsiteCollection => $this->magento->get('store/websites')
-            ->throw()
-            ->collect()
+        $data = $this->cache->remember('store/websites', function (): array {
+            return (array) $this->magento->get('store/websites')->throw()->json();
+        });
+
+        return collect($data)
             ->mapInto(Website::class)
-            ->pipeInto(WebsiteCollection::class));
+            ->pipeInto(WebsiteCollection::class);
     }
 
     public static function bind(): void

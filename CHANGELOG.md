@@ -1,6 +1,14 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/justbetter/laravel-magento-utilities/compare/1.1.1...main)
+[Unreleased changes](https://github.com/justbetter/laravel-magento-utilities/compare/1.2.0...main)
+## [1.2.0](https://github.com/justbetter/laravel-magento-utilities/releases/tag/1.2.0) - 2026-07-22
+
+### What's Changed
+* Add store configs by @VincentBean in https://github.com/justbetter/laravel-magento-utilities/pull/4
+
+
+**Full Changelog**: https://github.com/justbetter/laravel-magento-utilities/compare/1.1.1...1.2.0
+
 ## [1.1.1](https://github.com/justbetter/laravel-magento-utilities/releases/tag/1.1.1) - 2026-04-16
 
 ### What's Changed

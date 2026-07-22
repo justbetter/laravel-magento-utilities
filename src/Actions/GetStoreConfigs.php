@@ -22,13 +22,13 @@ class GetStoreConfigs implements GetsStoreConfigs
 
     public function get(): StoreConfigCollection
     {
-        $data = $this->cache->remember('store/storeConfigs', function (): array {
-            return (array) $this->magento->get('store/storeConfigs')->throw()->json();
-        });
+        return $this->cache->remember('store/storeConfigs', function (): StoreConfigCollection {
+            $data = (array) $this->magento->get('store/storeConfigs')->throw()->json();
 
-        return collect($data)
-            ->mapInto(StoreConfig::class)
-            ->pipeInto(StoreConfigCollection::class);
+            return collect($data)
+                ->mapInto(StoreConfig::class)
+                ->pipeInto(StoreConfigCollection::class);
+        });
     }
 
     public static function bind(): void

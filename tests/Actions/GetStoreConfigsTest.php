@@ -10,7 +10,7 @@ use JustBetter\MagentoUtilities\Actions\GetStoreConfigs;
 use JustBetter\MagentoUtilities\Tests\TestCase;
 use PHPUnit\Framework\Attributes\Test;
 
-class GetStoreConfigsTest extends TestCase
+final class GetStoreConfigsTest extends TestCase
 {
     #[Test]
     public function it_can_get_store_configs(): void

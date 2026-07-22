@@ -25,6 +25,5 @@ return RectorConfig::configure()
         instanceOf: true,
         earlyReturn: true,
         carbon: true,
-        rectorPreset: true,
         phpunitCodeQuality: true,
     );

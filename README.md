@@ -14,6 +14,7 @@ A set of common utilities to ease working with Magento. All helpers implement ca
 Currently, this packge provides the following utilities:
 
 - Fetching all stores.
+- Fetching all store configs.
 - Fetching all websites.
 
 ## Example

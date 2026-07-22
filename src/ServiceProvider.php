@@ -6,6 +6,7 @@ namespace JustBetter\MagentoUtilities;
 
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 use JustBetter\MagentoUtilities\Actions\CacheResult;
+use JustBetter\MagentoUtilities\Actions\GetStoreConfigs;
 use JustBetter\MagentoUtilities\Actions\GetStores;
 use JustBetter\MagentoUtilities\Actions\GetWebsites;
 
@@ -23,6 +24,7 @@ class ServiceProvider extends BaseServiceProvider
     {
         CacheResult::bind();
         GetStores::bind();
+        GetStoreConfigs::bind();
         GetWebsites::bind();
 
         return $this;
